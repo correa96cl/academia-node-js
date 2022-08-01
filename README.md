@@ -114,18 +114,33 @@ This is an example of how to list things you need to use the software and how to
 
 ### Installation
 
-1. Install the ESLINT Extension in VS CODE (https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)
-2. Clone the repo
+1. Clone the repo
    ```sh
    git clone https://github.com/correa96cl/academia-node-js.git
    ```
-3. Install esLint
+2. Install Express
+```sh
+    npm i express
+``` 
+3. Install Types of Express
+```sh
+    npm i --save-dev @types/express
+```
+4. Install TS-NODE-DEV
+```sh
+    npm i ts-node-dev -D
+```
+5. Install esLint (Optional)
   ```sh
   npm i eslint -D
   ```
-4. Initialize the esLint
+6. Initialize the esLint (Optional)
   ```sh
   npx  esLint --init
+  ```
+7. Install Prettier (Optional)
+  ```sh
+  npm i prettier eslint-config-prettier eslint-plugin-prettier -D
   ```
 
 
