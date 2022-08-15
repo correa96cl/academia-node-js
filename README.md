@@ -116,7 +116,7 @@ This is an example of how to list things you need to use the software and how to
 
 1. Clone the repo
    ```sh
-   git clone https://github.com/correa96cl/academia-node-js.git
+        git clone https://github.com/correa96cl/academia-node-js.git
    ```
 2. Install Express
 ```sh
@@ -142,6 +142,16 @@ This is an example of how to list things you need to use the software and how to
   ```sh
   npm i prettier eslint-config-prettier eslint-plugin-prettier -D
   ```
+
+8. Install UUID v4 
+  ```sh
+  npm install uuid
+  ```
+9. Install Types UUID v4
+  ```sh
+    npm i @types/uuid -D
+  ```
+
 
 
 
