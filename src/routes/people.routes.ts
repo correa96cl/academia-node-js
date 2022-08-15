@@ -1,6 +1,7 @@
 import { Router } from "express";
 
 import { UserRepository } from "../repositories/UserRepository";
+import { CreateUserService } from "../services/CreateUserService";
 
 const peopleRoutes = Router();
 
@@ -10,13 +11,9 @@ peopleRoutes.post("/", (request, response) => {
 
   const { numberDocument, name, typeDocument } = request.body;
 
-  const userAlreadyExists = userRepository.findByNumberDocumentTypeDocument(numberDocument, typeDocument);
+  const createUserService = new CreateUserService(userRepository);
 
-  if (userAlreadyExists) {
-    return response.status(400).json({ error: "User Alredy" });
-  }
-
-  userRepository.create({ name, numberDocument, typeDocument });
+  createUserService.execute({numberDocument, name, typeDocument})
 
   return response.status(201).send();
 });
