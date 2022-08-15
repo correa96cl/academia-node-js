@@ -195,9 +195,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 <!-- CONTACT -->
 ## Contact
 
-Your Name - [@your_twitter](https://twitter.com/your_username) - email@example.com
+Marcelo Valderrama Correa - correa96cl@hotmail.com
 
-Project Link: [https://github.com/your_username/repo_name](https://github.com/your_username/repo_name)
+Project Link: [https://github.com/correa96cl/academia-node-js](https://github.com/correa96cl/academia-node-js)
 
 
 
