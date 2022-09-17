@@ -10,6 +10,7 @@ class User {
     created_at: Date;
     updated_at: Date;
     state: number;
+    height: number;
     age?: number;
 
 

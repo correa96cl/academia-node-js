@@ -1,12 +1,11 @@
 import { Router } from "express";
-import { PostgresUsersRepositories } from "../repositories/PostgresUsersRepositories";
 
-import { UserRepository } from "../repositories/UserRepository";
-import { CreateUserService } from "../services/CreateUserService";
+import { UserRepository } from "../modules/people/repositories/UserRepository";
+import { CreateUserService } from "../modules/people/services/CreateUserService";
 
 const peopleRoutes = Router();
 
-const userRepository = new PostgresUsersRepositories();
+const userRepository = new UserRepository();
 
 peopleRoutes.post("/", (request, response) => {
 
