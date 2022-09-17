@@ -11,6 +11,8 @@ class UserRepository implements IUsersRepository {
     }
     
     findByNumberDocument(numberDocument: number): User {
+
+        
         throw new Error("Method not implemented.");
     }
 
@@ -36,8 +38,7 @@ class UserRepository implements IUsersRepository {
 
     }
 
-    findByNumberDocumentTypeDocument(numberDocument: number, typeDocument: number): User{
-
+    findByNumberDocumentTypeDocument(numberDocument: number, typeDocument: number): User | undefined{
         const user = this.users.find((user) => user.numberDocument === numberDocument && user.typeDocument === typeDocument);
 
         return user;

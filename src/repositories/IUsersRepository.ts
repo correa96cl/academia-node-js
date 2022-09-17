@@ -10,7 +10,7 @@ interface IUsersRepository{
     findByNumberDocument(numberDocument: number): User;
     list(): User[];
     create({numberDocument, typeDocument, name}: ICreateUserDTO): void ;
-    findByNumberDocumentTypeDocument(numberDocument: number, typeDocument: number): User;
+    findByNumberDocumentTypeDocument(numberDocument: number, typeDocument: number): User | undefined;
 }
 
 

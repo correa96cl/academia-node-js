@@ -3,8 +3,10 @@ import { ICreateUserDTO, IUsersRepository } from "./IUsersRepository";
 
 
 class PostgresUsersRepositories implements IUsersRepository {
-    findByNumberDocumentTypeDocument(numberDocument: number, typeDocument: number): User {
-        throw new Error("Method not implemented.");
+    findByNumberDocumentTypeDocument(numberDocument: number, typeDocument: number): User | undefined{
+        console.log(numberDocument);
+        //throw new Error("Method not implemented.");
+        return null;
     }
 
 
@@ -12,10 +14,11 @@ class PostgresUsersRepositories implements IUsersRepository {
         throw new Error("Method not implemented.");
     }
     list(): User[] {
-        throw new Error("Method not implemented.");
+        return null;
+        //throw new Error("Method not implemented.");
     }
     create({numberDocument, typeDocument, name}: ICreateUserDTO):void  {
-        throw new Error("Method not implemented.");
+        //throw new Error("Method not implemented.");
     }
 
 }
