@@ -1,3 +1,4 @@
+import { IUsersRepository } from "../repositories/IUsersRepository";
 import { UserRepository } from "../repositories/UserRepository";
 
 
@@ -8,7 +9,7 @@ interface IRequest {
 }
 
 class CreateUserService {
-    constructor(private userRepository: UserRepository) {
+    constructor(private userRepository: IUsersRepository) {
 
     }
 

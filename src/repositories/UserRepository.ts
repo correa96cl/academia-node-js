@@ -1,16 +1,17 @@
 import { User } from "../model/User";
+import { ICreateUserDTO, IUsersRepository } from "./IUsersRepository";
 
-interface ICreateUserDTO {
-    name: string,
-    numberDocument: number,
-    typeDocument: number
-}
 
-class UserRepository {
+
+class UserRepository implements IUsersRepository {
     private users: User[];
 
     constructor() {
         this.users = [];
+    }
+    
+    findByNumberDocument(numberDocument: number): User {
+        throw new Error("Method not implemented.");
     }
 
     create({ name, numberDocument, typeDocument }: ICreateUserDTO): void {
