@@ -1,21 +1,15 @@
 import { Router } from "express";
 
 import { UserRepository } from "../modules/people/repositories/UserRepository";
-import { CreateUserService } from "../modules/people/services/CreateUserService";
+import { createUserController } from "../modules/people/useCases/createUser";
 
 const peopleRoutes = Router();
 
 const userRepository = new UserRepository();
 
 peopleRoutes.post("/", (request, response) => {
-
-  const { numberDocument, name, typeDocument } = request.body;
-
-  const createUserService = new CreateUserService(userRepository);
-
-  createUserService.execute({numberDocument, name, typeDocument})
-
-  return response.status(201).send();
+return createUserController.handle(request, response);
+  
 });
 
 

@@ -1,5 +1,4 @@
-import { IUsersRepository } from "../repositories/IUsersRepository";
-import { UserRepository } from "../repositories/UserRepository";
+import { IUsersRepository } from "../../repositories/IUsersRepository";
 
 
 interface IRequest {
@@ -8,7 +7,7 @@ interface IRequest {
     typeDocument: number;
 }
 
-class CreateUserService {
+class CreateUserUseCase {
     constructor(private userRepository: IUsersRepository) {
 
     }
@@ -30,4 +29,4 @@ class CreateUserService {
 }
 
 
-export { CreateUserService };
+export { CreateUserUseCase };
