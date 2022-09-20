@@ -1,19 +1,11 @@
 import { Router } from "express";
-import { HistoryRepository } from "../modules/people/repositories/HistoryRepository";
-import { CreateHistoryService } from "../modules/people/services/CreateHistoryService";
+import { createHistoriesController } from "../modules/people/useCases/createHistory";
 
 
 const historyRoutes = Router();
 
-const historyRepository = new HistoryRepository();
-
 historyRoutes.post("/", (request, response) => {
-    const {description, weight, fat_percentage} = request.body;
-    const createHistorySpecificationService = new CreateHistoryService(historyRepository);
-
-    createHistorySpecificationService.execute({description, weight, fat_percentage});
-
-    return response.status(201).send();
+   return createHistoriesController.handle(request, response);
 })
 
 export {historyRoutes};

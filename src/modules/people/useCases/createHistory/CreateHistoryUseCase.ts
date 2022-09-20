@@ -1,4 +1,4 @@
-import { IHistoryRepository } from "../repositories/IHistoryRepository";
+import { IHistoryRepository } from "../../repositories/IHistoryRepository";
 
 interface IRequest {
     description: string;
@@ -6,7 +6,7 @@ interface IRequest {
     fat_percentage: number;
 }
 
-class CreateHistoryService {
+class CreateHistoryUseCase {
 
     constructor(private historiesReposiutory: IHistoryRepository) {
 
@@ -23,4 +23,4 @@ class CreateHistoryService {
 
 }
 
-export { CreateHistoryService }
+export { CreateHistoryUseCase }
