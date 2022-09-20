@@ -16,6 +16,6 @@ peopleRoutes.get("/", (request, response) => {
 
  return listUsersController.handle(request, response);
 
-})
+});
 
 export { peopleRoutes };
