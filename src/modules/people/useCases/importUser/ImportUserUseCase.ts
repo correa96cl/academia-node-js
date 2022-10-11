@@ -27,6 +27,7 @@ class ImportUserUseCase {
             users.push({numberDocument, typeDocument, name })
 
         }).on("end", () => {
+            fs.promises.unlink(file.path);
             resolve(users);
         }).on("error", (err) => {
             reject(err);

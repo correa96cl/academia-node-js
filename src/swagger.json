@@ -1,0 +1,82 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Academia DOcumentration",
+        "description": "Academia",
+        "version": "1.0.0",
+        "contact": {
+            "email": "jajjajaja"
+        }
+    },
+    "paths": {
+        "/users": {
+            "post": {
+                "summary": "Create User",
+                "description": "Create a new User",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "name": {
+                                        "type": "String"
+                                    },
+                                    "numberDocument": {
+                                        "type": "number"
+                                    },
+                                    "typeDocument": {
+                                        "type": "number"
+                                    }
+                                },
+                                "example": {
+                                    "name": "User",
+                                    "numberDocument": 14584665,
+                                    "typeDocument": 2
+                                }
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": ""
+                    }
+                }
+            },
+            "get": {
+                "tags": [
+                    "user"
+                ],
+                "summary": "List all users",
+                "description": "list all users",
+                "responses": {
+                    "200": {
+                        "description": "scuess",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "type": "object",
+                                        "properties": {
+                                            "name": {
+                                                "type": "string"
+                                            },
+                                            "numberDocument": {
+                                                "type": "number"
+                                            },
+                                            "typeDocument": {
+                                                "type": "number"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
