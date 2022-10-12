@@ -270,6 +270,10 @@ docker exec -it academia /bin/bash
 docker logs academia -f
 ```
 
+12. Docker compose Up Recreando a imagem.
+```
+docker-compose up --force-recreate
+```
 
 
 
