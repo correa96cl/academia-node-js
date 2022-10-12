@@ -51,9 +51,9 @@ class ImportUserUseCase {
                     typeDocument,
                     name
                 })
+
             }
         })
-
     }
 }
 

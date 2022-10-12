@@ -199,6 +199,79 @@ Marcelo Valderrama Correa - correa96cl@hotmail.com
 
 Project Link: [https://github.com/correa96cl/academia-node-js](https://github.com/correa96cl/academia-node-js)
 
+## Comandos Docker
+
+1. Criar a imagem do docker
+```
+docker build -t academia.
+```
+
+2. Configurar o porto
+```
+docker run -p 4000:4000 academia
+```
+
+3. Start Docker
+```
+docker start academia
+```
+
+4. Stop Docker
+```
+docker stop academia
+```
+
+4. Remover imagem (Opcional)
+```
+docker rmi academia
+```
+
+4. Olhar as containers do docker instaladas
+
+```
+docker ps
+```
+5. Olhar todos os containers
+```
+docker ps -a
+```
+
+6. Docker compose dar UP em primeiro plano
+```
+docker-compose up
+```
+
+6. Docker compose dar UP en background.
+```
+docker-compose up -d
+```
+
+7. Docker compose dar START
+```
+docker-compose start
+```
+
+8. Docker compose dar STOP
+```
+docker-compose stop
+```
+9. Docker compose para dar um DOWN
+```
+docker-compose down
+```
+
+10. Olhar todo o container
+```
+docker exec -it academia /bin/bash
+```
+
+11. Olhar os logs sempre
+```
+docker logs academia -f
+```
+
+
+
 
 
 <!-- ACKNOWLEDGEMENTS -->
@@ -216,7 +289,7 @@ Project Link: [https://github.com/correa96cl/academia-node-js](https://github.co
 * [Font Awesome](https://fontawesome.com)
 
 
-
+fpvkr
 
 
 <!-- MARKDOWN LINKS & IMAGES -->
