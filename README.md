@@ -274,7 +274,10 @@ docker logs academia -f
 ```
 docker-compose up --force-recreate
 ```
-
+13. Remover as imagems
+```
+docker-compose down -v --rmi local
+```
 
 
 
