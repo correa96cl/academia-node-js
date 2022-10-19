@@ -1,8 +1,6 @@
 import { MigrationInterface, QueryRunner, Table } from "typeorm";
 
 export class CreateUser1665699002532 implements MigrationInterface {
-  // eslint-disable-next-line class-methods-use-this
-
   public async up(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.createTable(
       new Table({
