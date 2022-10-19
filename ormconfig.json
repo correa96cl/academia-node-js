@@ -5,8 +5,10 @@
     "username": "docker",
     "password": "academia",
     "database": "academia",
-    "migrations": ["./src/database/migrations/*.ts"],
-    "cli":{
+    "migrations": [
+        "./src/database/migrations/*.ts"
+    ],
+    "cli": {
         "migrationsDir": "./src/database/migrations"
     }
 }

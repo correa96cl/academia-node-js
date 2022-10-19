@@ -53,7 +53,6 @@ export class CreateUser1665699002532 implements MigrationInterface {
     );
   }
 
-  // eslint-disable-next-line class-methods-use-this
   public async down(queryRunner: QueryRunner): Promise<void> {
     await queryRunner.dropTable("users");
   }
