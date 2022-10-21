@@ -279,6 +279,14 @@ docker-compose up --force-recreate
 docker-compose down -v --rmi local
 ```
 
+```
+npx typeorm migration:create -n CreateUser
+```
+
+
+```
+npx typeorm migration:run
+```
 
 
 <!-- ACKNOWLEDGEMENTS -->
