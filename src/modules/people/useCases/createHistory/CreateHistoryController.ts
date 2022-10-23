@@ -1,4 +1,5 @@
 import { Request, Response } from "express";
+
 import { CreateHistoryUseCase } from "./CreateHistoryUseCase";
 
 class CreateHistoryController {
