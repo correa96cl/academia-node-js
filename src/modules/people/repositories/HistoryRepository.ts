@@ -1,4 +1,4 @@
-import { History } from "../model/History";
+import { History } from "../entities/History";
 import { ICreateHistoryDTO, IHistoryRepository } from "./IHistoryRepository";
 
 class HistoryRepository implements IHistoryRepository {

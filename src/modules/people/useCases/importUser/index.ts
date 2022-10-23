@@ -2,9 +2,8 @@ import { UserRepository } from "../../repositories/implemantations/UserRepositor
 import { ImportUserController } from "./ImportUserController";
 import { ImportUserUseCase } from "./ImportUserUseCase";
 
-const usersRepository = UserRepository.getInstance();
+const usersRepository = new UserRepository();
 const importUserUseCase = new ImportUserUseCase(usersRepository);
 const importUserController = new ImportUserController(importUserUseCase);
 
-
-export {importUserController};
+export { importUserController };

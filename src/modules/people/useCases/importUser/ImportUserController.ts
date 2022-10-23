@@ -1,16 +1,16 @@
 import { Request, Response } from "express";
+
 import { ImportUserUseCase } from "./ImportUserUseCase";
 
-class ImportUserController{
+class ImportUserController {
+  constructor(private importUserUseCase: ImportUserUseCase) {}
+  handle(request: Request, response: Response): Response {
+    const { file } = request;
 
-    constructor (private importUserUseCase: ImportUserUseCase){}
-    handle(request: Request, response: Response): Response{
-        const {file} = request;
+    this.importUserUseCase.execute(file);
 
-        this.importUserUseCase.execute(file);
-
-        return response.send();
-    }
+    return response.send();
+  }
 }
 
-export {ImportUserController};
+export { ImportUserController };

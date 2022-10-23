@@ -1,4 +1,4 @@
-import { History } from "../model/History";
+import { History } from "../entities/History";
 
 export interface ICreateHistoryDTO{
     description: string;

@@ -1,17 +1,19 @@
-import { User } from "../../model/User";
+import { User } from "../../entities/User";
 
 interface ICreateUserDTO {
-    name: string,
+  name: string;
+  numberDocument: number;
+  typeDocument: number;
+}
+
+interface IUsersRepository {
+  findByNumberDocument(numberDocument: number): Promise<User>;
+  list(): Promise<User[]>;
+  create({ numberDocument, typeDocument, name }: ICreateUserDTO): Promise<void>;
+  findByNumberDocumentTypeDocument(
     numberDocument: number,
     typeDocument: number
+  ): Promise<User> | undefined;
 }
 
-interface IUsersRepository{
-    findByNumberDocument(numberDocument: number): User;
-    list(): User[];
-    create({numberDocument, typeDocument, name}: ICreateUserDTO): void ;
-    findByNumberDocumentTypeDocument(numberDocument: number, typeDocument: number): User | undefined;
-}
-
-
-export {IUsersRepository, ICreateUserDTO}
+export { IUsersRepository, ICreateUserDTO };

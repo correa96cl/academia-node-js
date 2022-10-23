@@ -1,61 +1,49 @@
-import { User } from "../../model/User";
+import { getRepository, Repository } from "typeorm";
+
+import { User } from "../../entities/User";
 import { ICreateUserDTO, IUsersRepository } from "./IUsersRepository";
 
-
-
 class UserRepository implements IUsersRepository {
-    private users: User[];
+  private repository: Repository<User>;
 
-    private static INSTANCE: UserRepository;
+  constructor() {
+    this.repository = getRepository(User);
+  }
 
-    private constructor() {
-        this.users = [];
-    }
+  findByNumberDocument(numberDocument: number): Promise<User> {
+    throw new Error("Method not implemented.");
+  }
 
-    public static getInstance(): UserRepository{
-        if (!UserRepository.INSTANCE){
-            UserRepository.INSTANCE = new UserRepository();
-        }
+  async create({
+    name,
+    numberDocument,
+    typeDocument,
+  }: ICreateUserDTO): Promise<void> {
+    const user = this.repository.create({
+      name,
+      numberDocument,
+      typeDocument,
+    });
 
-        return UserRepository.INSTANCE;
-    }
-    
-    findByNumberDocument(numberDocument: number): User {
+    await this.repository.save(user);
+  }
 
-        
-        throw new Error("Method not implemented.");
-    }
+  async list(): Promise<User[]> {
+    const users = await this.repository.find();
+    return users;
+  }
 
-    create({ name, numberDocument, typeDocument }: ICreateUserDTO): void {
-        const user = new User();
+  async findByNumberDocumentTypeDocument(
+    numberDocument: number,
+    typeDocument: number
+  ): Promise<User> | undefined {
+    const user = await this.repository.findOne({
+      numberDocument,
+      typeDocument,
+    });
 
-        Object.assign(user, {
-            name,
-            numberDocument,
-            typeDocument,
-            user: 1,
-            created_at: new Date(),
-            updated_at: new Date()
-        })
-
-
-
-        this.users.push(user);
-    }
-
-    list(): User[] {
-        return this.users;
-
-    }
-
-    findByNumberDocumentTypeDocument(numberDocument: number, typeDocument: number): User | undefined{
-        const user = this.users.find((user) => user.numberDocument === numberDocument && user.typeDocument === typeDocument);
-
-        return user;
-
-
-
-    }
+    return user;
+  }
 }
 
-export { UserRepository }
+export { UserRepository };
