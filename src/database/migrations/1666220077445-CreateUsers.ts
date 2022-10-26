@@ -13,11 +13,11 @@ export class CreateUser1665699002532 implements MigrationInterface {
           },
           {
             name: "typeDocument",
-            type: "number",
+            type: "int",
           },
           {
             name: "numberDocument",
-            type: "number",
+            type: "bigint",
           },
           {
             name: "name",
@@ -33,11 +33,11 @@ export class CreateUser1665699002532 implements MigrationInterface {
           },
           {
             name: "age",
-            type: "number",
+            type: "int",
           },
           {
             name: "height",
-            type: "number",
+            type: "decimal",
           },
           {
             name: "created_at",
