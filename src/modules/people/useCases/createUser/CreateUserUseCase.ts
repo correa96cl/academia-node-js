@@ -1,3 +1,7 @@
+import "reflect-metadata";
+
+import { inject, injectable } from "tsyringe";
+
 import { IUsersRepository } from "../../repositories/implemantations/IUsersRepository";
 
 interface IRequest {
@@ -6,8 +10,12 @@ interface IRequest {
   typeDocument: number;
 }
 
+@injectable()
 class CreateUserUseCase {
-  constructor(private userRepository: IUsersRepository) {}
+  constructor(
+    @inject("UserRepository")
+    private userRepository: IUsersRepository
+  ) {}
 
   async execute({
     name,
