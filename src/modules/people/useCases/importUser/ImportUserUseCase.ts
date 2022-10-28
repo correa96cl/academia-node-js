@@ -40,6 +40,7 @@ class ImportUserUseCase {
   async execute(file: Express.Multer.File): Promise<void> {
     const users = await this.loadUsers(file);
 
+    // eslint-disable-next-line array-callback-return
     users.map((user) => {
       const { numberDocument, typeDocument, name } = user;
 
