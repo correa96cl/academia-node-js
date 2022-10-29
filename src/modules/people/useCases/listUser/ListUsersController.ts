@@ -1,12 +1,14 @@
+import "reflect-metadata";
 import { Request, Response } from "express";
+import { container } from "tsyringe";
 
 import { ListUsersUseCase } from "./ListUsersUseCase";
 
 class ListUsersController {
-  constructor(private listUsersUseCase: ListUsersUseCase) {}
-
   handle(request: Request, response: Response): Response {
-    const all = this.listUsersUseCase.execute();
+    const listUsersUseCase = container.resolve(ListUsersUseCase);
+
+    const all = listUsersUseCase.execute();
 
     return response.json(all);
   }

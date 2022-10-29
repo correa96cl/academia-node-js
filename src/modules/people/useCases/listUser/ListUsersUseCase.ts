@@ -1,18 +1,19 @@
+import { inject, injectable } from "tsyringe";
+
 import { User } from "../../entities/User";
 import { IUsersRepository } from "../../repositories/implemantations/IUsersRepository";
 
+@injectable()
 class ListUsersUseCase {
+  constructor(
+    @inject("UserRepository")
+    private usersRepository: IUsersRepository
+  ) {}
 
-    constructor(private usersRepository: IUsersRepository) { }
-
-
-    execute(): User[] {
-
-        const users = this.usersRepository.list();
-        return users;
-    }
-
+  async execute(): Promise<User[]> {
+    const users = await this.usersRepository.list();
+    return users;
+  }
 }
 
-
-export { ListUsersUseCase }
+export { ListUsersUseCase };

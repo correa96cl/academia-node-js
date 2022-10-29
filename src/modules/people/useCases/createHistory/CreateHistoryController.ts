@@ -1,14 +1,15 @@
+import "reflect-metadata";
+
 import { Request, Response } from "express";
+import { container } from "tsyringe";
 
 import { CreateHistoryUseCase } from "./CreateHistoryUseCase";
 
 class CreateHistoryController {
-  constructor(private createHistoryUseCase: CreateHistoryUseCase) {}
-
-  handle(request: Request, response: Response): Response {
+  async handle(request: Request, response: Response): Promise<Response> {
     const { description, weight, fat_percentage } = request.body;
-
-    this.createHistoryUseCase.execute({ description, weight, fat_percentage });
+    const createHistoryUseCase = container.resolve(CreateHistoryUseCase);
+    await createHistoryUseCase.execute({ description, weight, fat_percentage });
 
     return response.status(201).send();
   }

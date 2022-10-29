@@ -1,11 +1,11 @@
 import { Router } from "express";
 
-import { createHistoriesController } from "../modules/people/useCases/createHistory";
+import { CreateHistoryController } from "../modules/people/useCases/createHistory/CreateHistoryController";
 
 const historyRoutes = Router();
 
-historyRoutes.post("/", (request, response) => {
-  return createHistoriesController.handle(request, response);
-});
+const createHistoriesController = new CreateHistoryController();
+
+historyRoutes.post("/", createHistoriesController.handle);
 
 export { historyRoutes };

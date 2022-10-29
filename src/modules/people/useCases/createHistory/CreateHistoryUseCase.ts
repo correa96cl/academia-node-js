@@ -1,3 +1,5 @@
+import { inject, injectable } from "tsyringe";
+
 import { IHistoryRepository } from "../../repositories/IHistoryRepository";
 
 interface IRequest {
@@ -6,8 +8,12 @@ interface IRequest {
   fat_percentage: number;
 }
 
+@injectable()
 class CreateHistoryUseCase {
-  constructor(private historiesReposiutory: IHistoryRepository) {}
+  constructor(
+    @inject("HistoryRepository")
+    private historiesReposiutory: IHistoryRepository
+  ) {}
   execute({ description, weight, fat_percentage }: IRequest): void {
     const historyAlreadyExists =
       this.historiesReposiutory.findByDescription(description);

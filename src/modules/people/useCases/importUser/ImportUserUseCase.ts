@@ -1,5 +1,6 @@
 import { parse as csvParse } from "csv-parse";
 import fs from "fs";
+import { inject, injectable } from "tsyringe";
 
 import { IUsersRepository } from "../../repositories/implemantations/IUsersRepository";
 
@@ -9,8 +10,12 @@ interface IImportUsers {
   name: string;
 }
 
+@injectable()
 class ImportUserUseCase {
-  constructor(private userRepository: IUsersRepository) {}
+  constructor(
+    @inject("UserRepository")
+    private userRepository: IUsersRepository
+  ) {}
 
   loadUsers(file: Express.Multer.File): Promise<IImportUsers[]> {
     return new Promise((resolve, reject) => {

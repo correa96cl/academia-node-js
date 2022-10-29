@@ -2,8 +2,9 @@ import { Router } from "express";
 import multer from "multer";
 
 import { CreateUserController } from "../modules/people/useCases/createUser/CreateUserController";
-import { importUserController } from "../modules/people/useCases/importUser";
-import { listUsersController } from "../modules/people/useCases/listUser";
+import { ImportUserController } from "../modules/people/useCases/importUser/ImportUserController";
+import { ListUsersController } from "../modules/people/useCases/listUser/ListUsersController";
+// import { importUserController } from "../modules/people/useCases/importUser";
 
 const peopleRoutes = Router();
 
@@ -12,14 +13,16 @@ const upload = multer({
 });
 
 const createUserController = new CreateUserController();
+const importUserController = new ImportUserController();
+const listUsersController = new ListUsersController();
 peopleRoutes.post("/", createUserController.handle);
 
-peopleRoutes.get("/", (request, response) => {
-  return listUsersController.handle(request, response);
-});
+peopleRoutes.get("/", listUsersController.handle);
 
-peopleRoutes.post("/import", upload.single("file"), (request, response) => {
-  return importUserController.handle(request, response);
-});
+peopleRoutes.post(
+  "/import",
+  upload.single("file"),
+  importUserController.handle
+);
 
 export { peopleRoutes };

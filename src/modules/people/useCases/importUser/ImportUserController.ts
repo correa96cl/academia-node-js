@@ -1,13 +1,17 @@
+import "reflect-metadata";
+
 import { Request, Response } from "express";
+import { container } from "tsyringe";
 
 import { ImportUserUseCase } from "./ImportUserUseCase";
 
 class ImportUserController {
-  constructor(private importUserUseCase: ImportUserUseCase) {}
   handle(request: Request, response: Response): Response {
     const { file } = request;
 
-    this.importUserUseCase.execute(file);
+    const importUserUseCase = container.resolve(ImportUserUseCase);
+
+    importUserUseCase.execute(file);
 
     return response.send();
   }
