@@ -1,29 +1,30 @@
+import { getRepository, Repository } from "typeorm";
+
 import { History } from "../entities/History";
 import { ICreateHistoryDTO, IHistoryRepository } from "./IHistoryRepository";
 
 class HistoryRepository implements IHistoryRepository {
-  private histories: History[];
-
+  private repository: Repository<History>;
   constructor() {
-    this.histories = [];
+    this.repository = getRepository(History);
   }
-  findByDescription(description: string): History {
-    const history = this.histories.find(
-      (history) => history.description === description
-    );
+  async findByDescription(description: string): Promise<History> {
+    const history = this.repository.findOne({ description });
+
     return history;
   }
-  create({ description, weight, fat_percentage }: ICreateHistoryDTO): void {
-    const history = new History();
-
-    Object.assign(history, {
+  async create({
+    description,
+    weight,
+    fat_percentage,
+  }: ICreateHistoryDTO): Promise<void> {
+    const histories = this.repository.create({
       description,
       weight,
       fat_percentage,
-      created_at: new Date(),
     });
 
-    this.histories.push(history);
+    await this.repository.save(histories);
   }
 }
 

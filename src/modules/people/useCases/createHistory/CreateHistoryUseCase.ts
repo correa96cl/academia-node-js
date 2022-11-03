@@ -14,9 +14,13 @@ class CreateHistoryUseCase {
     @inject("HistoryRepository")
     private historiesReposiutory: IHistoryRepository
   ) {}
-  execute({ description, weight, fat_percentage }: IRequest): void {
+  async execute({
+    description,
+    weight,
+    fat_percentage,
+  }: IRequest): Promise<void> {
     const historyAlreadyExists =
-      this.historiesReposiutory.findByDescription(description);
+      await this.historiesReposiutory.findByDescription(description);
 
     if (historyAlreadyExists) {
       this.historiesReposiutory.create({ description, weight, fat_percentage });

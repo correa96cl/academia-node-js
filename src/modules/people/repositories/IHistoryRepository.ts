@@ -7,8 +7,12 @@ export interface ICreateHistoryDTO {
 }
 
 interface IHistoryRepository {
-  create({ description, weight, fat_percentage }: ICreateHistoryDTO): void;
-  findByDescription(description: string): History;
+  create({
+    description,
+    weight,
+    fat_percentage,
+  }: ICreateHistoryDTO): Promise<void>;
+  findByDescription(description: string): Promise<History>;
 }
 
 export { IHistoryRepository };

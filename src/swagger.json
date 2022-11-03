@@ -1,11 +1,11 @@
 {
     "openapi": "3.0.0",
     "info": {
-        "title": "Academia DOcumentration",
+        "title": "Academia Documentration",
         "description": "Academia",
         "version": "1.0.0",
         "contact": {
-            "email": "jajjajaja"
+            "email": "correa96cl@hotmail.com"
         }
     },
     "paths": {
@@ -74,6 +74,72 @@
                                 }
                             }
                         }
+                    }
+                }
+            }
+        },
+        "/users/import": {
+            "post": {
+                "tags": ["User"],
+                "summary": "Upload new user",
+                "description": "",
+                "requestBody": {
+                    "content": {
+                        "application/octet-stream": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "file": {
+                                        "type": "string",
+                                        "format": "binary"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "201": {
+                    "description": "Created"
+                }
+            }
+        },
+        "/histories": {
+            "post": {
+                "tags": [
+                    "Histories"
+                ],
+                "summary": "Create a new history",
+                "description": "Create a new history",
+                "requestBody": {
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "$ref": "#/definitions/histories"
+                            }
+                        }
+                    }
+                }
+            },
+            "responses": {
+                "201": {
+                    "description": "Created"
+                },
+                "500": {
+                    "description": "History already exists!"
+                }
+            }
+        },
+        "definitions": {
+            "History": {
+                "type": "object",
+                "properties": {
+                    "name": {
+                        "type": "string"
+                    },
+                    "description": {
+                        "type": "string"
                     }
                 }
             }
