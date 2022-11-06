@@ -9,7 +9,7 @@ export class CreateHistory1667090468564 implements MigrationInterface {
           { name: "id", type: "uuid", isPrimary: true },
           { name: "description", type: "varchar" },
           { name: "weight", type: "bigint" },
-          { name: "fat_percentage", type: "double" },
+          { name: "fat_percentage", type: "decimal" },
           { name: "created_at", type: "timestamp", default: "now()" },
         ],
       })

@@ -29,7 +29,7 @@ export class CreateUser1665699002532 implements MigrationInterface {
           },
           {
             name: "nationality",
-            type: "varchar",
+            type: "int",
           },
           {
             name: "age",
@@ -38,6 +38,7 @@ export class CreateUser1665699002532 implements MigrationInterface {
           {
             name: "height",
             type: "decimal",
+            isNullable: true,
           },
           {
             name: "created_at",
@@ -47,6 +48,11 @@ export class CreateUser1665699002532 implements MigrationInterface {
           {
             name: "updated_at",
             type: "timestamp",
+            default: "now()",
+          },
+          {
+            name: "state",
+            type: "int",
           },
         ],
       })

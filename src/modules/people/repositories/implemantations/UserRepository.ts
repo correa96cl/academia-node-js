@@ -18,11 +18,21 @@ class UserRepository implements IUsersRepository {
     name,
     numberDocument,
     typeDocument,
+    nationality,
+    state,
+    lastname,
+    age,
+    height,
   }: ICreateUserDTO): Promise<void> {
     const user = this.repository.create({
       name,
       numberDocument,
       typeDocument,
+      nationality,
+      state,
+      lastname,
+      age,
+      height,
     });
 
     await this.repository.save(user);
@@ -30,6 +40,7 @@ class UserRepository implements IUsersRepository {
 
   async list(): Promise<User[]> {
     const users = await this.repository.find();
+    console.log("Users : ", users);
     return users;
   }
 

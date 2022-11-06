@@ -6,34 +6,34 @@ class User {
   @PrimaryColumn()
   id?: string;
 
-  @Column("numberDocument")
+  @Column()
   numberDocument: number;
 
-  @Column("typeDocument")
+  @Column()
   typeDocument?: number;
 
-  @Column("name")
+  @Column()
   name: string;
 
-  @Column("last_name")
-  last_name?: string;
+  @Column()
+  lastname?: string;
 
-  @Column("nationality")
+  @Column()
   nationality?: number;
 
   @CreateDateColumn()
   created_at: Date;
 
-  @Column("updated_at")
+  @CreateDateColumn()
   updated_at: Date;
 
-  @Column("state")
+  @Column()
   state: number;
 
-  @Column("height")
+  @Column()
   height: number;
 
-  @Column("age")
+  @Column()
   age?: number;
 
   constructor() {

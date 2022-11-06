@@ -8,6 +8,11 @@ interface IRequest {
   name: string;
   numberDocument: number;
   typeDocument: number;
+  nationality: number;
+  state: number;
+  lastname: string;
+  age: number;
+  height: number;
 }
 
 @injectable()
@@ -21,6 +26,11 @@ class CreateUserUseCase {
     name,
     numberDocument,
     typeDocument,
+    nationality,
+    state,
+    lastname,
+    age,
+    height,
   }: IRequest): Promise<void> {
     const userAlreadyExists =
       await this.userRepository.findByNumberDocumentTypeDocument(
@@ -32,7 +42,16 @@ class CreateUserUseCase {
       throw new Error("User Alredy exists ");
     }
 
-    this.userRepository.create({ name, numberDocument, typeDocument });
+    this.userRepository.create({
+      name,
+      numberDocument,
+      typeDocument,
+      nationality,
+      state,
+      lastname,
+      age,
+      height,
+    });
   }
 }
 

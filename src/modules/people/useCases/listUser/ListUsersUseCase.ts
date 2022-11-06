@@ -12,6 +12,7 @@ class ListUsersUseCase {
 
   async execute(): Promise<User[]> {
     const users = await this.usersRepository.list();
+    console.log("Users2 : ", users);
     return users;
   }
 }

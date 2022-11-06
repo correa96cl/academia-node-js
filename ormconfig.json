@@ -4,8 +4,7 @@
     "host": "localhost",
     "username": "docker",
     "password": "academia",
-    "entities": [
-    ],
+    "entities": ["./src/modules/**/entities/*.ts"],
     "database": "academia",
     "migrations": [
         "./src/database/migrations/*.ts"

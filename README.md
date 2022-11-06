@@ -285,7 +285,12 @@ npx typeorm migration:create -n CreateUser
 
 
 ```
-npx typeorm migration:run
+npm run typeorm migration:run
+```
+
+
+```
+npm run typeorm migration:revert
 ```
 
 
