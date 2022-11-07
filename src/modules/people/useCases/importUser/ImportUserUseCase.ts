@@ -2,19 +2,24 @@ import { parse as csvParse } from "csv-parse";
 import fs from "fs";
 import { inject, injectable } from "tsyringe";
 
-import { IUsersRepository } from "../../repositories/implemantations/IUsersRepository";
+import { IPeopleRepository } from "../../repositories/implemantations/IPeopleRepository";
 
 interface IImportUsers {
   numberDocument: number;
   typeDocument: number;
   name: string;
+  lastname: string;
+  nationality: number;
+  state: number;
+  age: number;
+  height: number;
 }
 
 @injectable()
 class ImportUserUseCase {
   constructor(
-    @inject("UserRepository")
-    private userRepository: IUsersRepository
+    @inject("PeopleRepository")
+    private userRepository: IPeopleRepository
   ) {}
 
   loadUsers(file: Express.Multer.File): Promise<IImportUsers[]> {
@@ -28,9 +33,27 @@ class ImportUserUseCase {
 
       parseFile
         .on("data", async (line) => {
-          const [numberDocument, typeDocument, name] = line;
+          const [
+            numberDocument,
+            typeDocument,
+            name,
+            nationality,
+            age,
+            state,
+            height,
+            lastname,
+          ] = line;
 
-          users.push({ numberDocument, typeDocument, name });
+          users.push({
+            numberDocument,
+            typeDocument,
+            name,
+            nationality,
+            age,
+            state,
+            height,
+            lastname,
+          });
         })
         .on("end", () => {
           fs.promises.unlink(file.path);
@@ -47,7 +70,16 @@ class ImportUserUseCase {
 
     // eslint-disable-next-line array-callback-return
     users.map((user) => {
-      const { numberDocument, typeDocument, name } = user;
+      const {
+        numberDocument,
+        typeDocument,
+        name,
+        nationality,
+        state,
+        height,
+        lastname,
+        age,
+      } = user;
 
       const existUser = this.userRepository.findByNumberDocumentTypeDocument(
         numberDocument,
@@ -59,6 +91,11 @@ class ImportUserUseCase {
           numberDocument,
           typeDocument,
           name,
+          nationality,
+          state,
+          lastname,
+          age,
+          height,
         });
       }
     });

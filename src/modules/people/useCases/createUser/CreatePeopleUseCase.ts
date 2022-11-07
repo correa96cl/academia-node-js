@@ -2,7 +2,7 @@ import "reflect-metadata";
 
 import { inject, injectable } from "tsyringe";
 
-import { IUsersRepository } from "../../repositories/implemantations/IUsersRepository";
+import { IPeopleRepository } from "../../repositories/implemantations/IPeopleRepository";
 
 interface IRequest {
   name: string;
@@ -16,10 +16,10 @@ interface IRequest {
 }
 
 @injectable()
-class CreateUserUseCase {
+class CreatePeopleUseCase {
   constructor(
-    @inject("UserRepository")
-    private userRepository: IUsersRepository
+    @inject("PeopleRepository")
+    private personRepository: IPeopleRepository
   ) {}
 
   async execute({
@@ -33,7 +33,7 @@ class CreateUserUseCase {
     height,
   }: IRequest): Promise<void> {
     const userAlreadyExists =
-      await this.userRepository.findByNumberDocumentTypeDocument(
+      await this.personRepository.findByNumberDocumentTypeDocument(
         numberDocument,
         typeDocument
       );
@@ -42,7 +42,7 @@ class CreateUserUseCase {
       throw new Error("User Alredy exists ");
     }
 
-    this.userRepository.create({
+    this.personRepository.create({
       name,
       numberDocument,
       typeDocument,
@@ -55,4 +55,4 @@ class CreateUserUseCase {
   }
 }
 
-export { CreateUserUseCase };
+export { CreatePeopleUseCase };

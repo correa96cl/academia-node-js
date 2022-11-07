@@ -2,9 +2,9 @@ import "reflect-metadata";
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 
-import { CreateUserUseCase } from "./CreateUserUseCase";
+import { CreatePeopleUseCase } from "./CreatePeopleUseCase";
 
-class CreateUserController {
+class CreatePeopleController {
   async handle(request: Request, response: Response): Promise<Response> {
     const {
       numberDocument,
@@ -17,10 +17,10 @@ class CreateUserController {
       nationality,
     } = request.body;
 
-    const createUserUseCase = container.resolve(CreateUserUseCase);
+    const createPersonUseCase = container.resolve(CreatePeopleUseCase);
     console.log("Body ; ", request.body);
 
-    await createUserUseCase.execute({
+    await createPersonUseCase.execute({
       numberDocument,
       name,
       typeDocument,
@@ -35,4 +35,4 @@ class CreateUserController {
   }
 }
 
-export { CreateUserController };
+export { CreatePeopleController };

@@ -1,6 +1,6 @@
-import { User } from "../../entities/User";
+import { Person } from "../../entities/Person";
 
-interface ICreateUserDTO {
+interface ICreatePersonDTO {
   name: string;
   numberDocument: number;
   typeDocument: number;
@@ -11,9 +11,9 @@ interface ICreateUserDTO {
   height: number;
 }
 
-interface IUsersRepository {
-  findByNumberDocument(numberDocument: number): Promise<User>;
-  list(): Promise<User[]>;
+interface IPeopleRepository {
+  findByNumberDocument(numberDocument: number): Promise<Person>;
+  list(): Promise<Person[]>;
   create({
     numberDocument,
     typeDocument,
@@ -23,11 +23,11 @@ interface IUsersRepository {
     lastname,
     age,
     height,
-  }: ICreateUserDTO): Promise<void>;
+  }: ICreatePersonDTO): Promise<void>;
   findByNumberDocumentTypeDocument(
     numberDocument: number,
     typeDocument: number
-  ): Promise<User> | undefined;
+  ): Promise<Person> | undefined;
 }
 
-export { IUsersRepository, ICreateUserDTO };
+export { IPeopleRepository, ICreatePersonDTO as ICreateUserDTO };

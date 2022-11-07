@@ -1,16 +1,19 @@
 import { getRepository, Repository } from "typeorm";
 
-import { User } from "../../entities/User";
-import { ICreateUserDTO, IUsersRepository } from "./IUsersRepository";
+import { Person } from "../../entities/Person";
+import {
+  ICreateUserDTO as IcreatePeopleDTO,
+  IPeopleRepository,
+} from "./IPeopleRepository";
 
-class UserRepository implements IUsersRepository {
-  private repository: Repository<User>;
+class PeopleRepository implements IPeopleRepository {
+  private repository: Repository<Person>;
 
   constructor() {
-    this.repository = getRepository(User);
+    this.repository = getRepository(Person);
   }
 
-  findByNumberDocument(numberDocument: number): Promise<User> {
+  findByNumberDocument(numberDocument: number): Promise<Person> {
     throw new Error("Method not implemented.");
   }
 
@@ -23,7 +26,7 @@ class UserRepository implements IUsersRepository {
     lastname,
     age,
     height,
-  }: ICreateUserDTO): Promise<void> {
+  }: IcreatePeopleDTO): Promise<void> {
     const user = this.repository.create({
       name,
       numberDocument,
@@ -38,7 +41,7 @@ class UserRepository implements IUsersRepository {
     await this.repository.save(user);
   }
 
-  async list(): Promise<User[]> {
+  async list(): Promise<Person[]> {
     const users = await this.repository.find();
     console.log("Users : ", users);
     return users;
@@ -47,7 +50,7 @@ class UserRepository implements IUsersRepository {
   async findByNumberDocumentTypeDocument(
     numberDocument: number,
     typeDocument: number
-  ): Promise<User> | undefined {
+  ): Promise<Person> | undefined {
     const user = await this.repository.findOne({
       numberDocument,
       typeDocument,
@@ -57,4 +60,4 @@ class UserRepository implements IUsersRepository {
   }
 }
 
-export { UserRepository };
+export { PeopleRepository };

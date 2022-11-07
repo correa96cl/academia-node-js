@@ -2,10 +2,13 @@ import { container } from "tsyringe";
 
 import { HistoryRepository } from "../../modules/people/repositories/HistoryRepository";
 import { IHistoryRepository } from "../../modules/people/repositories/IHistoryRepository";
-import { IUsersRepository } from "../../modules/people/repositories/implemantations/IUsersRepository";
-import { UserRepository } from "../../modules/people/repositories/implemantations/UserRepository";
+import { IPeopleRepository } from "../../modules/people/repositories/implemantations/IPeopleRepository";
+import { PeopleRepository } from "../../modules/people/repositories/implemantations/PeopleRepository";
 
-container.registerSingleton<IUsersRepository>("UserRepository", UserRepository);
+container.registerSingleton<IPeopleRepository>(
+  "PeopleRepository",
+  PeopleRepository
+);
 
 container.registerSingleton<IHistoryRepository>(
   "HistoryRepository",
