@@ -54,6 +54,18 @@ export class CreatePeople1665699002532 implements MigrationInterface {
             name: "state",
             type: "int",
           },
+          {
+            name: "country",
+            type: "int",
+          },
+          {
+            name: "province",
+            type: "int",
+          },
+          {
+            name: "city",
+            type: "int",
+          },
         ],
       })
     );

@@ -26,6 +26,9 @@ class PeopleRepository implements IPeopleRepository {
     lastname,
     age,
     height,
+    country,
+    province,
+    city,
   }: IcreatePeopleDTO): Promise<void> {
     const user = this.repository.create({
       name,
@@ -36,6 +39,9 @@ class PeopleRepository implements IPeopleRepository {
       lastname,
       age,
       height,
+      country,
+      province,
+      city,
     });
 
     await this.repository.save(user);

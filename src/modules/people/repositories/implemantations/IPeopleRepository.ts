@@ -9,6 +9,9 @@ interface ICreatePersonDTO {
   lastname: string;
   age: number;
   height: number;
+  country: number;
+  province: number;
+  city: number;
 }
 
 interface IPeopleRepository {
@@ -23,6 +26,9 @@ interface IPeopleRepository {
     lastname,
     age,
     height,
+    country,
+    province,
+    city,
   }: ICreatePersonDTO): Promise<void>;
   findByNumberDocumentTypeDocument(
     numberDocument: number,

@@ -36,6 +36,15 @@ class Person {
   @Column()
   age?: number;
 
+  @Column()
+  country: number;
+
+  @Column()
+  province: number;
+
+  @Column()
+  city: number;
+
   constructor() {
     if (!this.id) {
       this.id = uuidV4();

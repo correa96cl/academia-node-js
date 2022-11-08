@@ -15,6 +15,9 @@ class CreatePeopleController {
       age,
       height,
       nationality,
+      country,
+      province,
+      city,
     } = request.body;
 
     const createPersonUseCase = container.resolve(CreatePeopleUseCase);
@@ -29,6 +32,9 @@ class CreatePeopleController {
       age,
       height,
       nationality,
+      country,
+      province,
+      city,
     });
 
     return response.status(201).send();
