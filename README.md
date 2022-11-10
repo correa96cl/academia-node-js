@@ -285,6 +285,10 @@ npx typeorm migration:create -n CreateUser
 
 
 ```
+npx typeorm migration:create -n AlterUserDeleteUsername 
+```
+
+```
 npm run typeorm migration:run
 ```
 
@@ -292,7 +296,15 @@ npm run typeorm migration:run
 ```
 npm run typeorm migration:revert
 ```
+. Instalar Bcrypt.
+```
+npm install bcryptjs
+```
 
+Instalar dependencias do bcrypt do desenvolvimento.
+```
+npm install @types/bcryptjs -D
+```
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
