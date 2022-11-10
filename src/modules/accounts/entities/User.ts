@@ -20,6 +20,7 @@ class User {
 
   @Column()
   state: number;
+
   @CreateDateColumn()
   created_at: Date;
 

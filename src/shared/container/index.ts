@@ -18,6 +18,6 @@ container.registerSingleton<IHistoryRepository>(
 );
 
 container.registerSingleton<IUsersRepository>(
-  "UserRepository",
+  "UsersRepository",
   UsersRepository
 );
