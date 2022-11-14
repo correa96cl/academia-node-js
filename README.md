@@ -305,6 +305,16 @@ Instalar dependencias do bcrypt do desenvolvimento.
 ```
 npm install @types/bcryptjs -D
 ```
+Instalar Json Web Token
+
+```
+npm install jsonwebtoken
+```
+
+Instalar Types do jsonwwebtoken
+```
+npm install @types/jsonwebtoken -D
+```
 
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
