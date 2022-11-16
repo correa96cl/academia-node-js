@@ -1,5 +1,6 @@
 import { getRepository, Repository } from "typeorm";
 
+import { AppError } from "../../../../errors/AppError";
 import { Person } from "../../entities/Person";
 import {
   ICreateUserDTO as IcreatePeopleDTO,
@@ -14,7 +15,7 @@ class PeopleRepository implements IPeopleRepository {
   }
 
   findByNumberDocument(numberDocument: number): Promise<Person> {
-    throw new Error("Method not implemented.");
+    throw new AppError("Method not implemented.", 401);
   }
 
   async create({

@@ -316,6 +316,11 @@ Instalar Types do jsonwwebtoken
 npm install @types/jsonwebtoken -D
 ```
 
+Instalar express async errors
+```
+npm install express-async-errors
+```
+
 <!-- ACKNOWLEDGEMENTS -->
 ## Acknowledgements
 * [GitHub Emoji Cheat Sheet](https://www.webpagefx.com/tools/emoji-cheat-sheet)
