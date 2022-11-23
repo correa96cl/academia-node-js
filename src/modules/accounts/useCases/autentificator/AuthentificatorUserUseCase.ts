@@ -41,10 +41,14 @@ class AuthentificatorUserUseCase {
       throw new AppError("Email or password incorrect !", 401);
     }
 
-    const token = sign({}, "ff", {
-      subject: user.id,
-      expiresIn: "1d",
-    });
+    const token = sign(
+      {},
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c",
+      {
+        subject: user.id,
+        expiresIn: "1d",
+      }
+    );
 
     const tokenReturn: IResponse = {
       token,
